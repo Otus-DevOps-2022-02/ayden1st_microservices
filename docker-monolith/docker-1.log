@@ -1,0 +1,339 @@
+REPOSITORY                                      TAG                 IMAGE ID       CREATED          SIZE
+ayden1st/ubuntu-tmp-file                        latest              de20cfb12847   24 seconds ago   63.2MB
+ubuntu                                          18.04               c6ad7e71ba7d   2 weeks ago      63.2MB
+postgres                                        13.4-alpine         4f6c178b426d   7 months ago     192MB
+zabbix/zabbix-web-nginx-pgsql                   5.4.5-alpine        00c9c3cacbc1   7 months ago     139MB
+zabbix/zabbix-server-pgsql                      5.4.5-alpine        6b297758f14e   7 months ago     37.2MB
+hello-world                                     latest              feb5d9fea6a5   7 months ago     13.3kB
+selenium/standalone-chrome-debug                latest              b3706b71657b   9 months ago     1.08GB
+selenium/node-chrome-debug                      latest              d1d8b207089a   9 months ago     1.08GB
+prometheus_prometheus_bot                       latest              a6ffe3938e1f   17 months ago    23.4MB
+victoriametrics/victoria-metrics                latest              8ef2e499249a   17 months ago    24.3MB
+prom/prometheus                                 latest              0bc82119c95b   17 months ago    169MB
+grafana/grafana                                 latest              651ff2dc930f   17 months ago    187MB
+alpine                                          3.12                d6e46aa2470d   19 months ago    5.57MB
+docker.elastic.co/kibana/kibana                 7.9.2               ba296c26886a   19 months ago    1.18GB
+docker.elastic.co/elasticsearch/elasticsearch   7.9.2               caa7a21ca06e   19 months ago    763MB
+docker.elastic.co/apm/apm-server                7.9.2               0a5398cac9ee   19 months ago    435MB
+selenium/node-firefox-debug                     3.141.59-20200826   1b32f6301427   20 months ago    889MB
+selenium/node-chrome-debug                      3.141.59-20200826   c28d488748be   20 months ago    949MB
+selenium/node-firefox                           3.141.59-20200826   1871a88c5c11   20 months ago    858MB
+selenium/node-chrome                            3.141.59-20200826   6df82e991002   20 months ago    918MB
+selenium/hub                                    3.141.59-20200826   dffdad82155b   20 months ago    263MB
+monitoring-daemon                               latest              1050f445b596   21 months ago    929MB
+python                                          3.8-buster          6feb119dd186   21 months ago    882MB
+prom/alertmanager                               latest              c876f5897d7b   23 months ago    55.5MB
+prom/node-exporter                              latest              0e0218889c33   23 months ago    26.4MB
+jenkins-docker                                  latest              73dcc5c4df5a   24 months ago    1.4GB
+jenkins/jenkins                                 latest              0709618f99e4   2 years ago      649MB
+openshift/origin-control-plane                  v3.11               80ebf04c75bd   2 years ago      836MB
+openshift/origin-hypershift                     v3.11               69bbd1c0cc17   2 years ago      554MB
+openshift/origin-hyperkube                      v3.11               4d98b7184819   2 years ago      513MB
+python                                          3.8.2-alpine        6c32e2504283   2 years ago      107MB
+redis                                           5-alpine            3661c84ee9d0   2 years ago      29.8MB
+172.30.1.1:5000/my-home-test/polls              latest              e451d76d27d3   2 years ago      677MB
+172.30.1.1:5000/my-home-test/django-app-test    latest              3a608107e9ba   2 years ago      677MB
+172.30.1.1:5000/my-home-test/django-app         latest              dc9a76149106   2 years ago      682MB
+172.30.1.1:5000/11111/test2                     latest              8636ac177335   2 years ago      692MB
+172.30.1.1:5000/11111/django-example            latest              fd0dbea6f7d8   2 years ago      692MB
+172.30.1.1:5000/11111/nodejs-mongodb-example    latest              5e85e64904c7   2 years ago      549MB
+openshift/origin-node                           v3.11               78bbe10e4c92   2 years ago      1.19GB
+openshift/origin-deployer                       v3.11               72cb9643736c   2 years ago      388MB
+openshift/origin-haproxy-router                 v3.11               c4eade9707e1   2 years ago      415MB
+openshift/origin-docker-builder                 v3.11               232c44b2be77   2 years ago      466MB
+openshift/origin-cli                            v3.11               e4dcc61c3b25   2 years ago      388MB
+openshift/origin-pod                            v3.11               0b32890ca62d   2 years ago      265MB
+172.30.1.1:5000/openshift/python                <none>              062cba18279b   2 years ago      656MB
+openshift/jenkins-agent-nodejs-8-centos7        v3.11               c0b6d3d6fa25   2 years ago      969MB
+172.30.1.1:5000/openshift/python                <none>              f62320420b83   2 years ago      646MB
+openshift/origin-docker-registry                v3.11               9dffb2abf1dd   3 years ago      310MB
+google/cadvisor                                 latest              eb1210707573   3 years ago      69.6MB
+openshift/origin-web-console                    v3.11               be30b6cce5fa   3 years ago      339MB
+openshift/origin-service-serving-cert-signer    v3.11               47dadf9d43b6   3 years ago      276MB
+172.30.1.1:5000/openshift/nodejs                <none>              a2b5ec288f99   4 years ago      542MB
+<none>                                          <none>              20da7ed64a1e   4 years ago      204MB
+prom/prometheus                                 v2.1.0              c8ecf7c719c1   4 years ago      112MB
+
+[
+    {
+        "Id": "sha256:de20cfb12847c9e71af55b8d6bf594ac705c6d4f37cc288377748d3f90bef873",
+        "RepoTags": [
+            "ayden1st/ubuntu-tmp-file:latest"
+        ],
+        "RepoDigests": [],
+        "Parent": "sha256:c6ad7e71ba7d4969784c76f57c4cc9083aa96bb969d802f2ea38f4aaed90ff93",
+        "Comment": "",
+        "Created": "2022-05-15T18:18:27.993648912Z",
+        "Container": "e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd",
+        "ContainerConfig": {
+            "Hostname": "e85a77dfaaae",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:18.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "20.10.16",
+        "Author": "",
+        "Config": {
+            "Hostname": "e85a77dfaaae",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:18.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 63153709,
+        "VirtualSize": 63153709,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/ff46f6744634d455ec3958fc9a5d830306236bf13b21f7758cc64e6e6defba0e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/048b6c7b92074e2dc7ff6892f5bb436dd7574fa1630d942349a54ab53339076a/merged",
+                "UpperDir": "/var/lib/docker/overlay2/048b6c7b92074e2dc7ff6892f5bb436dd7574fa1630d942349a54ab53339076a/diff",
+                "WorkDir": "/var/lib/docker/overlay2/048b6c7b92074e2dc7ff6892f5bb436dd7574fa1630d942349a54ab53339076a/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:3e549931e0240b9aac25dc79ed6a6259863879a5c9bd20755f77cac27c1ab8c8",
+                "sha256:039df16d5b5e2f5752487ba5d91ece56bb3408da8742de08214a53313aa2f2a1"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2022-05-15T21:18:28.004415167+03:00"
+        }
+    }
+]
+
+[
+    {
+        "Id": "e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd",
+        "Created": "2022-05-15T17:57:09.470396073Z",
+        "Path": "/bin/bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 407445,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2022-05-15T18:16:56.194969858Z",
+            "FinishedAt": "2022-05-15T17:58:04.824927857Z"
+        },
+        "Image": "sha256:c6ad7e71ba7d4969784c76f57c4cc9083aa96bb969d802f2ea38f4aaed90ff93",
+        "ResolvConfPath": "/var/lib/docker/containers/e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd/hostname",
+        "HostsPath": "/var/lib/docker/containers/e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd/hosts",
+        "LogPath": "/var/lib/docker/containers/e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd/e85a77dfaaaec050dd2afcc84c629762d421310baec3cd99f4045fa7f7b133cd-json.log",
+        "Name": "/quizzical_northcutt",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "KernelMemory": 0,
+            "KernelMemoryTCP": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/12380fb16758d0b0e51963448ac224671b1da401965521fb2c4c6eb098c5f1f1-init/diff:/var/lib/docker/overlay2/ff46f6744634d455ec3958fc9a5d830306236bf13b21f7758cc64e6e6defba0e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/12380fb16758d0b0e51963448ac224671b1da401965521fb2c4c6eb098c5f1f1/merged",
+                "UpperDir": "/var/lib/docker/overlay2/12380fb16758d0b0e51963448ac224671b1da401965521fb2c4c6eb098c5f1f1/diff",
+                "WorkDir": "/var/lib/docker/overlay2/12380fb16758d0b0e51963448ac224671b1da401965521fb2c4c6eb098c5f1f1/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "e85a77dfaaae",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:18.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "54fa2bcba8edae795d77258a4eb7ad91347ed7fd01c83bf1281fcc22f8f8590c",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/54fa2bcba8ed",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "9e2a607b7a0c98993a6b3b604409b55b5af6549e9399b2f3f8a4e05e9937708a",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "e4b1359a11f251e8d6e32d1b1175194b2399a5f0661790c8e036e9b0b1f30f59",
+                    "EndpointID": "9e2a607b7a0c98993a6b3b604409b55b5af6549e9399b2f3f8a4e05e9937708a",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+Docker image - это неизменяемый файл, содержащий исходный код, библиотеки, зависимости, инструменты и другие файлы, необходимые для запуска приложения. Docker container - это экземпляр image, содержащий новый слой доступный для записи и ряд настроек характерных для работающей машины, например NetworkSettings.
