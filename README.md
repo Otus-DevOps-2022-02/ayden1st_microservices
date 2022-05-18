@@ -93,3 +93,72 @@ terraform apply
 ```
 ansible-playbook playbooks/start_container.yml
 ```
+### Лекция 17
+#### 17.1 Создание и запуск связанных контейнеров
+Build, создание сети reddit и запуск связанных контейнеров:
+```
+docker build -t ayden1st/post:1.0 ./post-py
+docker build -t ayden1st/comment:1.0 ./comment
+docker build -t ayden1st/ui:1.0 ./ui
+docker pull mongo:latest
+docker network create reddit
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db mongo:latest
+docker run -d --network=reddit --network-alias=post ayden1st/post:1.0
+docker run -d --network=reddit --network-alias=comment ayden1st/comment:1.0
+docker run -d --network=reddit -p 9292:9292 ayden1st/ui:1.0
+```
+#### 17.2 Задание со *
+Запуск контейнеров с параметрами env, переопредящие параметры заданные в Dockerfile:
+```
+docker run -d --network=reddit --network-alias=post_db_new --network-alias=comment_db_new mongo:latest
+docker run -d --network=reddit --network-alias=post_new \
+  -e POST_DATABASE_HOST='post_db_new' \
+  ayden1st/post:1.0
+docker run -d --network=reddit --network-alias=comment_new \
+  -e COMMENT_DATABASE_HOST='comment_db_new' \
+  ayden1st/comment:1.0
+docker run -d --network=reddit -p 9292:9292 \
+  -e POST_SERVICE_HOST='post_new' \
+  -e COMMENT_SERVICE_HOST='comment_new' \
+  ayden1st/ui:1.0
+```
+#### 17.3 Задание со *
+Оптимизированные образы в файлах Dockerfile.1
+* Использованы alpine образы
+* Очищается кеш установщиков pip, apk
+```
+REPOSITORY         TAG                IMAGE ID       CREATED              SIZE
+ayden1st/ui        3.0                db2ad76145e1   About a minute ago   91.6MB
+ayden1st/post      2.0                ca124214c3be   19 minutes ago       64.8MB
+ayden1st/comment   2.0                9c9df1e44931   44 minutes ago       89MB
+ayden1st/ui        2.0                d022e4e0dea8   About an hour ago    432MB
+ayden1st/post      1.0                12a27f67be5d   2 hours ago          121MB
+ayden1st/ui        1.0                cfbc38f21173   3 hours ago          762MB
+ayden1st/comment   1.0                a4b332da83e1   3 hours ago          759MB
+```
+Build и запуск коннтейнеров с оптимизированными образами:
+```
+docker build -t ayden1st/post:2.0 -f ./post-py/Dockerfile.1 ./post-py
+docker build -t ayden1st/comment:2.0 -f ./comment/Dockerfile.1 ./comment
+docker build -t ayden1st/ui:3.0 -f ./ui/Dockerfile.1 ./ui
+docker run -d --network=reddit --network-alias=post_db \
+--network-alias=comment_db -v reddit_db:/data/db mongo:latest
+docker run -d --network=reddit --network-alias=post ayden1st/post:2.0
+docker run -d --network=reddit --network-alias=comment ayden1st/comment:2.0
+docker run -d --network=reddit -p 9292:9292 ayden1st/ui:3.0
+```
+#### 17.4 Использование volume
+Создание volume и запуск контейнеров с его использованием:
+```
+docker volume create reddit_db
+docker run -d --network=reddit --network-alias=post_db \
+--network-alias=comment_db -v reddit_db:/data/db mongo:latest
+docker run -d --network=reddit --network-alias=post ayden1st/post:1.0
+docker run -d --network=reddit --network-alias=comment ayden1st/comment:1.0
+docker run -d --network=reddit -p 9292:9292 ayden1st/ui:2.0
+```
+Остановка и удаление контейнеров:
+```
+docker kill $(docker ps -q)
+docker container prune
+```
