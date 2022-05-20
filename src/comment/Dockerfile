@@ -1,11 +1,12 @@
-FROM ruby:2.2
+FROM ubuntu:16.04
 
 ENV APP_HOME /app
 
-RUN apt-get update -qq && \
-    apt-get install -y build-essential && \
-    rm -rf /var/lib/apt/* && \
-    mkdir $APP_HOME
+RUN apt-get update \
+    && apt-get install -y ruby-full ruby-dev build-essential \
+    && gem install bundler --no-ri --no-rdoc \
+    && mkdir $APP_HOME \
+    && rm -rf /var/lib/apt/*
 
 WORKDIR $APP_HOME
 
