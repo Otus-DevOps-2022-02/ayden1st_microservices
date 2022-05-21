@@ -70,7 +70,7 @@ provider_installation {
   }
 }
 ```
-Устанвка роли для установки Docker:
+Установка роли для установки Docker:
 ```
 cd docker-monolith/infra/ansible
 ansible-galaxy install -r requrements.yml -p ./roles
@@ -162,3 +162,28 @@ docker run -d --network=reddit -p 9292:9292 ayden1st/ui:2.0
 docker kill $(docker ps -q)
 docker container prune
 ```
+### Лекция 18
+#### Docker и сети
+Запуск контейнеров с несколькими сетями:
+```
+docker network create back_net --subnet=10.0.2.0/24
+docker network create front_net --subnet=10.0.1.0/24
+docker run -d --network=front_net -p 9292:9292 --name ui ayden1st/ui:1.0
+docker run -d --network=back_net --name comment ayden1st/comment:1.0
+docker run -d --network=back_net --name post ayden1st/post:1.0
+docker run -d --network=back_net --name mongo_db \
+  --network-alias=post_db --network-alias=comment_db mongo:latest
+docker network connect front_net post
+docker network connect front_net comment
+```
+#### 18.2 Docker-compose
+Добавлены переменные окружения:
+* Логин пользователя в DockerHub
+* Порт приложения
+* Версия приложений
+* Имя проекта
+Базовое имя проекта в docker-compose берется из имени папки в которой находится файл docker-compose. Изменить можно задав переменную env COMPOSE_PROJECT_NAME или запустив docker-compose с флагом -p <NAME>.
+#### 18.3 Задание со *
+Файл docker-compose.override.yml добавлены:
+* Монтирование папки приложения в контейнер (работает на локальной машине)
+* Добавлена опция command переопределяющая запуск puma с отличными от образа дополнительными параметрами `--debug -w 2`
