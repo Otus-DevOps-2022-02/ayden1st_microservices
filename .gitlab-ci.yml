@@ -6,6 +6,7 @@ stages:
   - review
   - stage
   - production
+  - clear
 
 variables:
   DATABASE_URL: 'mongodb://mongo/user_posts'
@@ -89,3 +90,19 @@ production:
   environment:
     name: production
     url: http://example.com
+
+clear review:
+  stage: clear
+  image: docker:stable
+  when: manual
+  before_script:
+    - cd reddit
+  script:
+    - docker container kill reddit-$CI_COMMIT_SHORT_SHA
+    - docker container rm reddit-$CI_COMMIT_SHORT_SHA
+  environment:
+    name: branch/$CI_COMMIT_REF_NAME
+  only:
+    - branches
+  except:
+    - master
