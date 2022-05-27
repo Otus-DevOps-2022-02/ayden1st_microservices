@@ -22,8 +22,9 @@ build_job:
 build_container_reddit:
   stage: build
   image: docker:stable
-  script:
+  before_script:
     - cd reddit
+  script:
     - docker build -t reddit:$CI_COMMIT_REF_NAME .
     - docker run --name reddit -d reddit:$CI_COMMIT_REF_NAME
   environment:
