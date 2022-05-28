@@ -46,7 +46,7 @@ test_integration_job:
   script:
     - echo 'Testing 2'
 
-branch review:
+branch_review:
   stage: review
   image: docker:stable
   before_script:
@@ -91,7 +91,7 @@ production:
     name: production
     url: http://example.com
 
-clear review:
+clear_review:
   stage: clear
   image: docker:stable
   when: manual
