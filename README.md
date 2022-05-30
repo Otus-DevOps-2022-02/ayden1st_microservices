@@ -187,3 +187,37 @@ docker network connect front_net comment
 Файл docker-compose.override.yml добавлены:
 * Монтирование папки приложения в контейнер (работает на локальной машине)
 * Добавлена опция command переопределяющая запуск puma с отличными от образа дополнительными параметрами `--debug -w 2`
+### Лекция 20
+#### 20.1 Установка gitlab-ce в контейнере
+Созданы манифест terraform для развертывания ВМ и плейбук ansible для установки docker и запуска контейнеров gitlab-ce, gitlab-runner. Пароль root хранится в контейнере:
+```
+sudo docker exec -it gitlab grep 'Password:' /etc/gitlab/initial_root_password
+```
+Для регистрации runner нужно запустить комманду в контейнере:
+```
+sudo docker exec -it gitlab-runner gitlab-runner register \
+--url http://<external_ip>/ \
+--non-interactive \
+--locked=false \
+--name DockerRunner \
+--executor docker \
+--docker-image alpine:latest \
+--registration-token <TOKEN> \
+--tag-list "linux,xenial,ubuntu,docker" \
+--run-untagged
+```
+#### 20.1 Задание со *
+Установка gitlab-ce и gitlab-runner:
+```
+cd gitlab-ci/infra/terraform
+terraform init
+terraform apply
+cd ../ansible
+ansible-playbook playbook/install_docker.yml
+```
+Для сборки образа docker, runner должен иметь доступ к docker.socket:
+```
+docker exec -it gitlab-runner gitlab-runner register --url http://<external_ip>/ --non-interactive --locked=false --name DockerRunner --executor docker --docker-image alpine:latest --registration-token <TOKEN> --tag-list "linux,xenial,ubuntu,docker" --run-untagged --docker-volumes "/var/run/docker.sock:/var/run/docker.sock"
+```
+В пайплайн добавлены build_container_reddit для сборки образа, branch_review для запуска контейнера, clear_review для удаления контенера.
+[Ссылка](https://devops-team-otus.slack.com/archives/C03706PRZU6) на канал в Slack
