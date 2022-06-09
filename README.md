@@ -163,7 +163,7 @@ docker kill $(docker ps -q)
 docker container prune
 ```
 ### Лекция 18
-#### Docker и сети
+#### 18.1 Docker и сети
 Запуск контейнеров с несколькими сетями:
 ```
 docker network create back_net --subnet=10.0.2.0/24
@@ -221,3 +221,18 @@ docker exec -it gitlab-runner gitlab-runner register --url http://<external_ip>/
 ```
 В пайплайн добавлены build_container_reddit для сборки образа, branch_review для запуска контейнера, clear_review для удаления контенера.
 [Ссылка](https://devops-team-otus.slack.com/archives/C03706PRZU6) на канал в Slack
+
+### Лекция 22
+#### 22.1 Мониторинг с Prometheus
+Созданы Dockerfile и конфигурация Prometheus.
+Команда для сборки всех образов приложений:
+```
+export USER_NAME=username
+for i in ui post-py comment; do cd src/$i; bash docker_build.sh; cd -; done
+```
+Отредактирован файл docker-compose.yml для запуска контейненеров с Prometheus. Убраны команды build, Добавлены network aliases.
+Контейнеры загружены в [DockerHub](https://hub.docker.com/u/ayden1st).
+#### 22.2 Задания со *
+Добален мониторинг БД с помощью percona/mongodb_exporter.
+Добален мониторинг Blackbox.
+Создан Makefile для сборки и отправки образов.
