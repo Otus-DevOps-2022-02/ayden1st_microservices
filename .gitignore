@@ -19,3 +19,4 @@ vault.key
 
 roles/
 .env
+build_info.txt
