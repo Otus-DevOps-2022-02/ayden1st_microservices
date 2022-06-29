@@ -3,6 +3,7 @@ variables.json
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
+tfplan
 .terraform/
 .terraform.lock.hcl
 backend.conf
@@ -17,6 +18,6 @@ vault.key
 .cache
 .pytest_cache
 
-roles/
+geerlingguy.*/
 .env
 build_info.txt

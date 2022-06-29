@@ -42,3 +42,23 @@ push_comment: ## Push Comment image.
 	docker push $(USER_NAME)/comment
 
 push_all: push_prometheus push_ui push_post push_comment ## Push all
+
+terraform_k8s_vm: ## Create VM for k8s
+	@cd kubernetes/terraform && \
+	terraform init -input=false && \
+	terraform plan -out=tfplan -input=false \
+	&& terraform apply -input=false tfplan
+
+ansible_k8s: ## Install k8s
+	@cd kubernetes/ansible && \
+	ansible all -m wait_for_connection && \
+	ansible-playbook playbooks/install_docker.yml && \
+	ansible-playbook playbooks/install_kuber.yml
+
+destroy_k8s_vm: ## Destroy VM for k8s
+	@cd kubernetes/terraform && \
+	terraform init -input=false && \
+	terraform plan -out=tfplan -destroy && \
+	terraform apply tfplan
+
+install_k8s: terraform_k8s_vm ansible_k8s ## Install k8s on YC
