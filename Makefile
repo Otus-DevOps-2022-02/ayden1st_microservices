@@ -62,3 +62,15 @@ destroy_k8s_vm: ## Destroy VM for k8s
 	terraform apply tfplan
 
 install_k8s: terraform_k8s_vm ansible_k8s ## Install k8s on YC
+
+install_yc_mk8s: ## Install Yandex Cloud Managed Kubernetes
+	@cd kubernetes/terraform_yc_mk8s && \
+	terraform init -input=false && \
+	terraform plan -out=tfplan -input=false \
+	&& terraform apply -input=false tfplan
+
+destroy_yc_mk8s_vm: ## Destroy Yandex Cloud Managed Kubernetes
+	@cd kubernetes/terraform_yc_mk8s && \
+	terraform init -input=false && \
+	terraform plan -out=tfplan -destroy && \
+	terraform apply tfplan
