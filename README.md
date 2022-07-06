@@ -410,7 +410,7 @@ kubectl describe service ui -n dev | grep NodePort
 ```
 make install_yc_mk8s
 ```
-[Документация](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)по установке дашборда в кластер Kubernetes.
+[Документация](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) по установке дашборда в кластер Kubernetes.
 Применение манифестов, создание токена, запуск proxy:
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml
