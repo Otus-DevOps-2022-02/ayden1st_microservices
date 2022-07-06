@@ -6,7 +6,7 @@ metadata:
   labels:
     app: reddit
     component: mongo
-    post-db: "true"
+    # post-db: "true"
     comment-db: "true"
 spec:
   replicas: 1
@@ -20,7 +20,7 @@ spec:
       labels:
         app: reddit
         component: mongo
-        post-db: "true"
+        # post-db: "true"
         comment-db: "true"
     spec:
       containers:
