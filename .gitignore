@@ -17,6 +17,7 @@ vault.key
 .molecule
 .cache
 .pytest_cache
+tls.*
 
 geerlingguy.*/
 .env
