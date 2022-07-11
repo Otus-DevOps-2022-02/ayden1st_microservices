@@ -454,7 +454,7 @@ kubectl get ingress -n dev
 ```
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=<ingress_external_ip"
 ```
-Манифесты для секрета сертификата и ingress-https находятся в папке `kubernetes/reddit/https`.
+Манифесты для секрета сертификата и ingress находятся в папке `kubernetes/reddit`.
 #### 31.3 Network Policy
 Применение манифеста network-policy:
 ```
