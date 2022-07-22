@@ -475,3 +475,81 @@ yc compute disk create \
 kubectl apply -f kubernetes/reddit/mongo-volume.yml -n dev
 kubectl apply -f kubernetes/reddit/mongo-claim.yml -n dev
 ```
+### Лекция 32
+#### 32.1 Helm
+При работе с Helm 3 установка чарта производится командой:
+```
+helm install --name-template test-ui-1 kubernetes/Charts/ui/
+```
+Удаление чарта:
+```
+helm uninstall test-ui-1
+```
+Установка ingress с помощью Helm:
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx --version 4.1.4
+```
+#### 32.2 Gitlab
+При установке не поддерживаемого gitlab-omnibus в Yandex Cloud возникли ошибки в контейнерах и ingress.
+Использован Managed Service for Gitlab.
+
+Установка Gitlab-runner:
+`values.yaml`
+```
+---
+imagePullPolicy: IfNotPresent
+gitlabUrl: <публичный IP-адрес ВМ или FQDN инстанса Managed Service for GitLab>
+runnerRegistrationToken: "<registration token>"
+terminationGracePeriodSeconds: 3600
+concurrent: 10
+checkInterval: 30
+sessionServer:
+ enabled: false
+rbac:
+  create: true
+  clusterWideAccess: true
+  podSecurityPolicy:
+    enabled: false
+    resourceNames:
+      - gitlab-runner
+runners:
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+        namespace = "{{.Release.Namespace}}"
+        image = "ubuntu:20.04"
+        privileged = true
+```
+```
+helm install --namespace default gitlab-runner -f values.yaml gitlab/gitlab-runner
+```
+Сервисный аккаунт для gitlab-runner:
+```
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gitlab-admin
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: gitlab-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: gitlab-admin
+  namespace: kube-system
+```
+Получение токена:
+```
+kubectl -n kube-system get secrets -o json | \
+jq -r '.items[] | select(.metadata.name | startswith("gitlab-admin")) | .data.token' | \
+base64 --decode
+```

@@ -1,0 +1,24 @@
+comment:
+  image:
+    repository: ayden1st/comment
+    tag: latest
+  service:
+    externalPort: 9292
+
+post:
+  image:
+    repository: ayden1st/post
+    tag: latest
+  service:
+    externalPort: 5000
+
+ui:
+  image:
+    repository: ayden1st/ui
+    tag: latest
+  service:
+    externalPort: 9292
+
+mongodb:
+  auth:
+    enabled: false
