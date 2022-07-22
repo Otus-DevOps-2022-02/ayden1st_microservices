@@ -1,0 +1,9 @@
+---
+apiVersion: v2
+appVersion: "1.0.0"
+name: post
+version: 1.0.0
+description: OTUS reddit application Post
+maintainers:
+- name: ayden1st
+  email: ayden1st@example.com

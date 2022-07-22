@@ -1,0 +1,10 @@
+---
+service:
+  internalPort: 5000
+  externalPort: 5000
+
+image:
+  repository: ayden1st/post
+  tag: latest
+
+databaseHost:
