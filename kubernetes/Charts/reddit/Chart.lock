@@ -1,0 +1,15 @@
+dependencies:
+- name: ui
+  repository: file://../ui
+  version: 1.0.0
+- name: post
+  repository: file://../post
+  version: 1.0.0
+- name: comment
+  repository: file://../comment
+  version: 1.0.0
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.1.27
+digest: sha256:3db98e61e797bf9b18c88fe25065083844508ad280d60ff3cb2e7150ed56fb78
+generated: "2022-07-21T23:26:36.498556247+03:00"
